@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Insurance</title>
+    <style>
+        /* Styles for all pages */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #007bff;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .signup-message {
+            margin-top: 20px;
+            font-style: italic;
+            color: #888;
+        }
+
+        .welcome-message {
+            margin-top: 20px;
+            font-style: italic;
+            color: #555;
+        }
+
+        .logout-button {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .logout-button a {
+            padding: 12px 30px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .logout-button a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="loginSection">
+        <h1>E-Insurance</h1>
+        <div id="loginContent">
+            <h2>Login</h2>
+            <form id="loginForm" action="#" method="post">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required><br><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br><br>
+                <button type="submit">Login</button>
+            </form>
+            <p class="signup-message">Don't have an account? <a href="signup.html">Sign Up</a></p>
+        </div>
+        <div id="welcomeContent" style="display: none;">
+            <h2>Welcome</h2>
+            <p class="welcome-message">You are now logged in to your E-Insurance account.</p>
+            <div class="logout-button">
+                <a href="#">Logout</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Form validation and login functionality
+        const loginForm = document.getElementById('loginForm');
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (!username || !password) {
+                alert('Please fill in all fields for login.');
+            } else {
+                // Here you would normally send the login details to the server for validation
+                // For demonstration, let's assume the login is successful
+                // You can replace this with your actual login validation logic
+                // For now, let's show the welcome section after successful login
+                document.getElementById('loginContent').style.display = 'none';
+                document.getElementById('welcomeContent').style.display = 'block';
+            }
+        });
+
+        // Logout link click event
+        const logoutLink = document.querySelector('.logout-button a');
+        logoutLink.addEventListener('click', function(event) {
+            event.preventDefault();
+            // Here you can perform any logout actions if needed
+            // For now, let's just reload the page (simulate logout)
+            window.location.reload();
+        });
+    </script>
+</body>
+</html>
+
